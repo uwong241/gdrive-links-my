@@ -41,17 +41,51 @@
           <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
         </a>
 
-        <!-- Button 2: Tugas kelas -->
-        <a href="https://drive.google.com/" target="_blank" rel="noopener noreferrer" class="link-btn">
-          <div class="btn-icon">
-            <i class="fa-solid fa-folder-open"></i>
+        <!-- Button 2: Tugas kelas (Dropdown / Accordion) -->
+        <div class="dropdown-group">
+          <button type="button" class="link-btn dropdown-toggle" id="tugasKelasBtn" aria-expanded="false">
+            <div class="btn-icon">
+              <i class="fa-solid fa-folder-open"></i>
+            </div>
+            <div class="btn-text">
+              <span class="btn-title">Tugas Kelas</span>
+              <span class="btn-desc">Klik untuk melihat folder mata pelajaran</span>
+            </div>
+            <i class="fa-solid fa-chevron-down chevron-icon"></i>
+          </button>
+          
+          <div class="submenu-container" id="tugasKelasSubmenu">
+            <!-- Submenu 1: Tugas Senbud -->
+            <a href="https://drive.google.com/drive/folders/1cpYSQTiyGsiwX1yl0W1ezPCBCFRa2lP1?usp=sharing" target="_blank" rel="noopener noreferrer" class="submenu-item">
+              <div class="sub-icon"><i class="fa-solid fa-palette"></i></div>
+              <div class="sub-text">
+                <span class="sub-title">Tugas Senbud</span>
+                <span class="sub-desc">Google Drive Folder</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square sub-arrow"></i>
+            </a>
+
+            <!-- Submenu 2: Tugas B.arab -->
+            <a href="https://drive.google.com/drive/folders/1F0yc2_IUrsUvMJ-POQPXgAsvNMEYtejJ?usp=sharing" target="_blank" rel="noopener noreferrer" class="submenu-item">
+              <div class="sub-icon"><i class="fa-solid fa-book-quran"></i></div>
+              <div class="sub-text">
+                <span class="sub-title">Tugas B. Arab</span>
+                <span class="sub-desc">Google Drive Folder</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square sub-arrow"></i>
+            </a>
+
+            <!-- Submenu 3: Tugas IPS -->
+            <a href="https://drive.google.com/drive/folders/1IdQXSUflHurSQvebkd4Rmwu42ei9WDAq?usp=sharing" target="_blank" rel="noopener noreferrer" class="submenu-item">
+              <div class="sub-icon"><i class="fa-solid fa-earth-americas"></i></div>
+              <div class="sub-text">
+                <span class="sub-title">Tugas IPS</span>
+                <span class="sub-desc">Google Drive Folder</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square sub-arrow"></i>
+            </a>
           </div>
-          <div class="btn-text">
-            <span class="btn-title">Tugas Kelas</span>
-            <span class="btn-desc">Akses folder berkas & materi bersama</span>
-          </div>
-          <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
-        </a>
+        </div>
       </div>
 
       <footer class="card-footer">
@@ -59,6 +93,18 @@
       </footer>
     </div>
   </main>
+
+  <!-- Accordion Toggle Script -->
+  <script>
+    const tugasBtn = document.getElementById('tugasKelasBtn');
+    const submenu = document.getElementById('tugasKelasSubmenu');
+    
+    tugasBtn.addEventListener('click', function() {
+      const isOpen = submenu.classList.toggle('open');
+      tugasBtn.classList.toggle('active', isOpen);
+      tugasBtn.setAttribute('aria-expanded', isOpen);
+    });
+  </script>
 
   <!-- YouTube IFrame API for seamless looping background -->
   <script>
