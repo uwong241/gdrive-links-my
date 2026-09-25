@@ -129,15 +129,18 @@
           disablekb: 1,
           fs: 0,
           iv_load_policy: 3,
-          modestbranding: 1
+          modestbranding: 1,
+          start: 1
         },
         events: {
           onReady: function(e) {
             e.target.mute();
+            e.target.seekTo(1);
             e.target.playVideo();
           },
           onStateChange: function(e) {
             if (e.data === YT.PlayerState.ENDED) {
+              player.seekTo(1);
               player.playVideo();
             }
           }
