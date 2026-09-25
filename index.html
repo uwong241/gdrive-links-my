@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MY - Google Drive Links</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Video Background Container -->
+  <div class="video-background">
+    <div id="player"></div>
+    <div class="video-overlay"></div>
+  </div>
+
+  <!-- Main Card Container -->
+  <main class="container">
+    <div class="profile-card">
+      <div class="avatar-wrapper">
+        <img src="assets/avatar.jpg" alt="Profile MY" class="avatar-img">
+        <div class="status-indicator"></div>
+      </div>
+
+      <h1 class="profile-name">MY</h1>
+      <p class="profile-bio">Koleksi Tautan Google Drive & Berkas</p>
+
+      <div class="links-wrapper">
+        <!-- Button 1: Tugas saya -->
+        <a href="https://drive.google.com/" target="_blank" rel="noopener noreferrer" class="link-btn">
+          <div class="btn-icon">
+            <i class="fa-solid fa-user-graduate"></i>
+          </div>
+          <div class="btn-text">
+            <span class="btn-title">Tugas Saya</span>
+            <span class="btn-desc">Akses folder tugas pribadi di Google Drive</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+        </a>
+
+        <!-- Button 2: Tugas kelas -->
+        <a href="https://drive.google.com/" target="_blank" rel="noopener noreferrer" class="link-btn">
+          <div class="btn-icon">
+            <i class="fa-solid fa-folder-open"></i>
+          </div>
+          <div class="btn-text">
+            <span class="btn-title">Tugas Kelas</span>
+            <span class="btn-desc">Akses folder berkas & materi bersama</span>
+          </div>
+          <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
+        </a>
+      </div>
+
+      <footer class="card-footer">
+        <p>© 2026 MY • All rights reserved</p>
+      </footer>
+    </div>
+  </main>
+
+  <!-- YouTube IFrame API for seamless looping background -->
+  <script>
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    var player;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        videoId: 'XpIKBdEnnFw',
+        playerVars: {
+          autoplay: 1,
+          controls: 0,
+          showinfo: 0,
+          rel: 0,
+          loop: 1,
+          playlist: 'XpIKBdEnnFw',
+          mute: 1,
+          playsinline: 1,
+          disablekb: 1,
+          fs: 0,
+          iv_load_policy: 3,
+          modestbranding: 1
+        },
+        events: {
+          onReady: function(e) {
+            e.target.mute();
+            e.target.playVideo();
+          },
+          onStateChange: function(e) {
+            if (e.data === YT.PlayerState.ENDED) {
+              player.playVideo();
+            }
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
