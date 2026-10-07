@@ -29,17 +29,31 @@
       <p class="profile-bio">Pengumpulan tugas saya dan kelas X TJKT</p>
 
       <div class="links-wrapper">
-        <!-- Button 1: Tugas saya -->
-        <a href="https://drive.google.com/" target="_blank" rel="noopener noreferrer" class="link-btn">
-          <div class="btn-icon">
-            <i class="fa-solid fa-user-graduate"></i>
+        <!-- Button 1: Tugas saya (Dropdown / Accordion) -->
+        <div class="dropdown-group">
+          <button type="button" class="link-btn dropdown-toggle" id="tugasSayaBtn" aria-expanded="false">
+            <div class="btn-icon">
+              <i class="fa-solid fa-user-graduate"></i>
+            </div>
+            <div class="btn-text">
+              <span class="btn-title">Tugas Saya</span>
+              <span class="btn-desc">Klik untuk melihat folder tugas pribadi</span>
+            </div>
+            <i class="fa-solid fa-chevron-down chevron-icon"></i>
+          </button>
+          
+          <div class="submenu-container" id="tugasSayaSubmenu">
+            <!-- Submenu 1: Tugas Tambahan -->
+            <a href="https://drive.google.com/drive/folders/1Y5gvraOOGfH5wXR55fsgpBFQk9cav7g1?usp=sharing" target="_blank" rel="noopener noreferrer" class="submenu-item">
+              <div class="sub-icon"><i class="fa-solid fa-file-circle-plus"></i></div>
+              <div class="sub-text">
+                <span class="sub-title">Tugas Tambahan</span>
+                <span class="sub-desc">Google Drive Folder</span>
+              </div>
+              <i class="fa-solid fa-arrow-up-right-from-square sub-arrow"></i>
+            </a>
           </div>
-          <div class="btn-text">
-            <span class="btn-title">Tugas Saya</span>
-            <span class="btn-desc">Akses folder tugas pribadi di Google Drive</span>
-          </div>
-          <i class="fa-solid fa-arrow-up-right-from-square arrow-icon"></i>
-        </a>
+        </div>
 
         <!-- Button 2: Tugas kelas (Dropdown / Accordion) -->
         <div class="dropdown-group">
@@ -96,14 +110,20 @@
 
   <!-- Accordion Toggle Script -->
   <script>
-    const tugasBtn = document.getElementById('tugasKelasBtn');
-    const submenu = document.getElementById('tugasKelasSubmenu');
-    
-    tugasBtn.addEventListener('click', function() {
-      const isOpen = submenu.classList.toggle('open');
-      tugasBtn.classList.toggle('active', isOpen);
-      tugasBtn.setAttribute('aria-expanded', isOpen);
-    });
+    function setupDropdown(btnId, menuId) {
+      const btn = document.getElementById(btnId);
+      const menu = document.getElementById(menuId);
+      if (!btn || !menu) return;
+
+      btn.addEventListener('click', function() {
+        const isOpen = menu.classList.toggle('open');
+        btn.classList.toggle('active', isOpen);
+        btn.setAttribute('aria-expanded', isOpen);
+      });
+    }
+
+    setupDropdown('tugasSayaBtn', 'tugasSayaSubmenu');
+    setupDropdown('tugasKelasBtn', 'tugasKelasSubmenu');
   </script>
 
   <!-- YouTube IFrame API for seamless looping background -->
